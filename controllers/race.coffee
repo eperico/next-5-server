@@ -25,8 +25,9 @@ get_by_name = (name, done) ->
     return done(err) if err
     data = JSON.parse(res)
     race = data.races.find (r) => r.raceName == name
-    if race then race.runners = generate_runners()
-    done null, race
+    return done new Error('Unable to find race') unless race
+    race.runners = generate_runners()
+    done null, { race }
 
 
 module.exports = {
