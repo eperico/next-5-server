@@ -2,9 +2,9 @@ race_controller = require '../../controllers/race'
 
 
 get_race_list = (params, done) ->
-  { id } = params
-  if params.id?
-    race_controller.get_by_id {id}, done
+  { name } = params
+  if params.name?
+    race_controller.get_by_name name, done
   else
     race_controller.get_all params, done
 

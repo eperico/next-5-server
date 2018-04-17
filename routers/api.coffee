@@ -8,7 +8,7 @@ default_routes =
 
 race_routes =
   get:
-    "/races/:id?":      bf.webService race_presenter.get_race_list
+    "/races/:name?":    bf.webService race_presenter.get_race_list
 
 route_definitions = [
   default_routes

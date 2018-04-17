@@ -1,6 +1,6 @@
 logger  = require '../helpers/logger'
 request = require 'request'
-config = require 'config'
+config  = require 'config'
 
 
 get_all = (params, done) ->
@@ -11,12 +11,16 @@ get_all = (params, done) ->
     done null, body
   )
 
-get_by_id = ({ id }, done) ->
-  logger.info "get race with id", id
-  done null, { title: 'Race2', description: 'description race 2'}
+get_by_name = (name, done) ->
+  logger.info "get race with name", name
+  get_all {}, (err, res) =>
+    return done(err) if err
+    data = JSON.parse(res)
+    race = data.races.find (r) => r.raceName == name
+    done null, race
 
 
 module.exports = {
   get_all
-  get_by_id
+  get_by_name
 }
