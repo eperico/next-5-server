@@ -6,6 +6,7 @@ logger        = require '../helpers/logger'
 random_number = (min, max) => parseInt(Math.random() * (max - min) + min)
 
 generate_runners = () =>
+  # Each Race has at least 4 Competitors
   nbRunners = random_number(4, 10)
   runners = []
   runners.push { position: i+1, name: generateName() } for i in [0..nbRunners]
