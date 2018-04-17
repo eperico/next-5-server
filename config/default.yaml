@@ -1,0 +1,6 @@
+debug: true
+
+web:
+  api:
+    allowed_domain: "*"
+    port: 3000

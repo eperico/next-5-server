@@ -1,0 +1,27 @@
+{
+  "name": "next-5-server",
+  "version": "1.0.0",
+  "description": "Server that provides API for Next 5 Web App",
+  "readme": "README.md",
+  "main": "server/api.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "async": "^2.4.0",
+    "body-parser": "^1.17.2",
+    "config": "^1.26.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "js-yaml": "^3.6.1",
+    "lateral": "^3.0.5",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "underscore": "^1.8.3",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "xss": "^0.1.12"
+  }
+}
