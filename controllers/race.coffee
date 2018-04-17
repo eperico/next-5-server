@@ -1,14 +1,15 @@
 logger  = require '../helpers/logger'
+request = require 'request'
+config = require 'config'
+
 
 get_all = (params, done) ->
-  logger.info "get all races"
-  list = [
-    { title: 'Race1', description: 'description race 1'}
-    { title: 'Race2', description: 'description race 2'}
-    { title: 'Race3', description: 'description race 3'}
-  ]
-  done null, list
-
+  maxRaces = params.maxRaces || 10
+  url = "#{config.web.api.fetch_races_url}&maxRaces=#{maxRaces}"
+  request(url, (error, response, body) =>
+    return done(error) if error?
+    done null, body
+  )
 
 get_by_id = ({ id }, done) ->
   logger.info "get race with id", id

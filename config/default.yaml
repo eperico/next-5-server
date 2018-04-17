@@ -4,3 +4,4 @@ web:
   api:
     allowed_domain: "*"
     port: 3000
+    fetch_races_url: "https://api.beta.tab.com.au/v1/tab-info-service/racing/next-to-go/races?jurisdiction=NSW&includeRecentlyClosed=false"
