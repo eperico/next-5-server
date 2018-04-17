@@ -1,7 +1,15 @@
-logger  = require '../helpers/logger'
-request = require 'request'
-config  = require 'config'
+config        = require 'config'
+request       = require 'request'
+generateName  = require 'sillyname'
+logger        = require '../helpers/logger'
 
+random_number = (min, max) => parseInt(Math.random() * (max - min) + min)
+
+generate_runners = () =>
+  nbRunners = random_number(4, 10)
+  runners = []
+  runners.push { position: i+1, name: generateName() } for i in [0..nbRunners]
+  return runners
 
 get_all = (params, done) ->
   maxRaces = params.maxRaces || 10
@@ -17,6 +25,7 @@ get_by_name = (name, done) ->
     return done(err) if err
     data = JSON.parse(res)
     race = data.races.find (r) => r.raceName == name
+    if race then race.runners = generate_runners()
     done null, race
 
 
