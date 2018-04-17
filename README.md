@@ -3,7 +3,8 @@
 Server that provides an API for the Next 5 Web App, based on node, express and coffee-script.
 
 The API provides an endpoint to get the next 5 races opened for betting.
-It fetches the data from [Tabcorp API](https://studio.tab.com.au/intro).
+There is no model definition nor database connection.
+The API only fetches the data from [Tabcorp API](https://studio.tab.com.au/intro).
 
 
 ## How to setup and run the project
